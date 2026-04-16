@@ -13,8 +13,8 @@ The code has been primarily tested using PowerFlarm and a traffic simulator (det
 The original wifi_UDP and BT_LE taffic data connections appear to work from SoftRF transceivers.  Traffic data input with the USB socket as the connection does not work because it did not work in MB06B and Linar only fixed that in his V0.13.  
 I have tested staisfactorily the bridge functionality with Wifi but I have not tested it with BT. SoftRF compatibility is not relevant to the WAGA project, so I wont be fixing any related issues.
 
-Additions and changes to MB06B include:
-======================================
+WAGA01 Additions and changes to MB06B include:
+=============================================
 1.  Landscape screen layout added to increase installation flexibility.  Use the WebGUI to select landscape or portrait.  (Does not do 180 rotation like Linar v0.13)
 2.  NavBoxes in Radar_View amended to:  Threat, Traffic number, Vertical Distance and CompID (looked up from OGN database on SD card).
 3.  Nav_View mode added.  Provides basic navigation data to hardcoded Waypoints for use by tugs on aero retrieves. Same radar display
@@ -38,16 +38,36 @@ Additions and changes to MB06B include:
 16.  On startup:  If setting=Voice, the original voice 'post' jingle is suppressed.  If Setting=Buzzer, 2 buzzes are made.
 17.  On startup, if 'No data' is available, message shows what connection and baud rate is set (enumeration values).  If there is 'No Fix', the message shows what type of data is set to be received (eg NMEA).
     This information previously was shown in the NavBoxes.
-19.  A user manual has been provided.
 
-I have also developed a tool using MS Access for creating and sending traffic simulations.  It's proven invaluable during testing.  It's a working tool, not a 'polished' programme!
+WAGA02 CHANGES - Not released
+==============
+
+WAGA03 CHANGES
+==============
+1.  Competition ID is shown beside each traffic icon.  If Comp ID not found on SD card, then last 3-digits of ID.  Aircraft with
+    zero ground speed (PFLAA sentences) do not show Comp ID.
+2.  Revised use of TextBoxes.
+3.  Nav_View, intended to assist tug pilots doing paddock retrieves, now has RMI needle that always points to selected Waypoint.
+4.  New Sound mode TONE added.  Plays a specific wave sound file for each of Traffic alert, Alarm1, Alarm2 and Alarm3.  Can be
+    tones or a voice message.  Tones saved in Alerts directory on SD card. Detail in manual.  Use Audacity to create tones. 
+5.  Alarm panel now obscures Radar Panel during alarms.  Has new vertical angle indicator.
+6.  Bugs with Advisories Filters fixed.
+7.  Updated manaual.  
+
+
+TRAFFIC SIMULATION TOOL
+=======================
+This is a tool written in MS Access for creating and sending traffic simulations on a PC and sending them to the SkyView by hardwire.  It's proven invaluable during testing.  It's a working tool, not a 'polished' programme!
 Simulations using PLAU and PFLAA sentences can be created and saved by the developer as data tables.  Simulations are approximations intended for testing functionality and code changes.
-GPS fix data can be inserted.  CheckSums calculated and concated to the Sentance.
-Then directly from MS Access (using USB->RS232_TTL conversion), at the push of a button, the sim is fed at the required input rate to the Skyview.
+GPS fix data can be inserted.  CheckSums are calculated and concated to the Sentance.
+Then directly from MS Access (using USB->RS232_TTL conversion), at the push of a button, the sim is fed at the required input rate in a loop to the Skyview.
 The PowerFlarm built in sims are in the database.
+Captured NMEA from a Flarm in flight (eg suing XCSoar) can be replayed and/edited.
 The tool can also be used to communicate with a PowerFlarm to read the settings and initiate the built-in sims.
 
-Sim tool update 10 May 25. User interface allows setting of port number and baud rate. 
+Sim tool update 10 May 25. 
+--------------------------
+User interface allows setting of port number and baud rate. 
 Custom Sims panel has text box to enter ThisAircraft track for sims where Fix is added. This saves editing the GPS sentence.
 
 ![image](https://github.com/user-attachments/assets/d60e1500-8a59-4c47-92f7-ea86ffdb929e)
