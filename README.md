@@ -13,6 +13,12 @@ The code has been primarily tested using PowerFlarm and a traffic simulator (det
 The original wifi_UDP and BT_LE taffic data connections appear to work from SoftRF transceivers.  Traffic data input with the USB socket as the connection does not work because it did not work in MB06B and Linar only fixed that in his V0.13.  
 I have tested staisfactorily the bridge functionality with Wifi but I have not tested it with BT. SoftRF compatibility is not relevant to the WAGA project, so I wont be fixing any related issues.
 
+<img width="1591" height="787" alt="image" src="https://github.com/user-attachments/assets/96e9679b-19e9-4656-8948-0cf1d281458e" />
+<img width="389" height="273" alt="image" src="https://github.com/user-attachments/assets/e7a81ed4-129a-43e6-b59a-dd35df608053" />
+<img width="519" height="357" alt="image" src="https://github.com/user-attachments/assets/df65c76a-74c3-4486-9349-69df7f21b67d" />
+
+
+
 WAGA01 Additions and changes to MB06B include:
 =============================================
 1.  Landscape screen layout added to increase installation flexibility.  Use the WebGUI to select landscape or portrait.  (Does not do 180 rotation like Linar v0.13)
@@ -65,28 +71,19 @@ The PowerFlarm built in sims are in the database.
 Captured NMEA from a Flarm in flight (eg suing XCSoar) can be replayed and/edited.
 The tool can also be used to communicate with a PowerFlarm to read the settings and initiate the built-in sims.
 
+<img width="1378" height="695" alt="image" src="https://github.com/user-attachments/assets/8251c0fd-fd4c-4248-b976-ecde56e822a3" />
+
+
+<img width="1767" height="585" alt="image" src="https://github.com/user-attachments/assets/b9c09e6d-f26c-44f4-8e01-9f22a38ab2eb" />
+
 Sim tool update 10 May 25. 
 --------------------------
 User interface allows setting of port number and baud rate. 
 Custom Sims panel has text box to enter ThisAircraft track for sims where Fix is added. This saves editing the GPS sentence.
 
-![image](https://github.com/user-attachments/assets/d60e1500-8a59-4c47-92f7-ea86ffdb929e)
-
-![image](https://github.com/user-attachments/assets/a36aabe8-a0b7-445a-a084-25a9363579ed)
-
-![image](https://github.com/user-attachments/assets/0452630e-c46c-42e8-9fae-4a9853a871e2)
-
-![image](https://github.com/user-attachments/assets/88cc1f16-41d7-473b-bf7f-df6781b72471)
-
-![image](https://github.com/user-attachments/assets/a5d38270-ffc8-4bcc-a441-61fc425fd417)
-
 There are Utube videos showing some of the features here:
 
-www.youtube.com/watch?v=6XAo3VZiTSU
-
-www.youtube.com/watch?v=aKL4Eq96BqY
-
-www.youtube.com/watch?v=15VMMSYqtp0
+https://youtu.be/_5mlzl7RmtM
 
 For discussions join the SoftRF Community.
 
