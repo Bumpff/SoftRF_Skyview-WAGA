@@ -29,7 +29,7 @@ WAGA01 Additions and changes to MB06B include:
 5.  Additional fields added to NMEA parse: 'Notrack' and 'Source' (available from Flarm protocol 9 onwards). 'Source' distinguishes ADSB and mode-s traffic.
 6.  Added concept of 'Threat' where threat is the current highest Alarm Level or closest traffic if no alarms.
 7.  NavBox1 shows Threat distance or Alarm Level. In small text it shows source of threat info.
-8.  NavBox 4 shows Comp ID of Threat (the Hex code is visbible in small font) derived from an OGN data file on the micro-SD card.  If no Comp ID, will show last 4 digits of rego. 
+8.  NavBox 4 shows Comp ID of Threat (the Hex code is visbible in small font) derived from an OGN data file on the micro-SD card.  If no Comp ID, will show last 3 digits of ID hex code. 
 9.  Alarm 'lookout relative bearing indicator' added.  When a Level 1 Alarm is detected, a black triangle is shown just inside the scale ring showing the pilot where
    to look for the Threat. If a Level 2 Alarm is detected, a triangle is added on the same arc as the black triangle but closer to the radar centre.
   If a Level 3 Alarm is detected, a further triangle is added.  Note: all triangles indicate the direction to look for the traffic, not the the traffic location on
@@ -58,7 +58,7 @@ WAGA03 CHANGES
     tones or a voice message.  Tones saved in Alerts directory on SD card. Detail in manual.  Use Audacity to create tones. 
 5.  Alarm panel now obscures Radar Panel during alarms.  Has new vertical angle indicator.
 6.  Bugs with Advisories Filters fixed.
-7.  Updated manaual.  
+7.  Updated manual.  
 
 
 TRAFFIC SIMULATION TOOL
