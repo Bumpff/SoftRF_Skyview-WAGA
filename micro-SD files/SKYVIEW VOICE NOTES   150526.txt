@@ -1,0 +1,14 @@
+SKYVIEW VOICE NOTES   Kevin Wilson April 2026
+===================
+voice files must be:
+.wav files
+16 Bit
+sample rate 22050
+Channel format LEFT only
+
+Tone files can be tones or voice messages.  File names must match (- and are used) as follows:
+ Tone_Demo      - played at startup
+ Tone_Traffic   - traffic advisories
+ Tone_Alarm1    - Flarm alarm level 1
+ Tone_Alarm2    - Flarm alarm level 2
+ Tone_Alarm3    - Flarm alarm level 3
