@@ -55,7 +55,7 @@ WAGA03 CHANGES
 2.  Revised use of TextBoxes.
 3.  Nav_View, intended to assist tug pilots doing paddock retrieves, now has RMI needle that always points to selected Waypoint.
 4.  New Sound mode TONE added.  Plays a specific wave sound file for each of Traffic alert, Alarm1, Alarm2 and Alarm3.  Can be
-    tones or a voice message.  Tones saved in Alerts directory on SD card. Detail in manual.  Use Audacity to create tones. 
+    tones or a voice message.  Tones saved in /audio/tones directory on SD card. Detail in manual.  Use Audacity to create tones. 
 5.  Alarm panel now obscures Radar Panel during alarms.  Has new vertical angle indicator.
 6.  Bugs with Advisories Filters fixed.
 7.  Updated manual.  
