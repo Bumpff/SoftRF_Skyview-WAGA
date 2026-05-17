@@ -90,6 +90,11 @@ Sim tool update 10 May 26.
 The tool can be used to read and change Flarm settings.  It works for CLassic Flarm (fewer settings available) and PowerFlarm.
 Tool can read PowerFlam CARP Rx range data and display on built in graph.  CARP (Continuous Analysis of Radio Performance is explained in Flarm Technical Document FTD-065.
 
+Sim tool update 17 May 26.
+-------------------------
+Improved detection of which Port FLARM is connected to and the FLARM's baudrate, with auto setting to match.
+CARP analysis can now cope with nil data after reset  (lack of start/end date was causing error).
+
 <img width="827" height="466" alt="image" src="https://github.com/user-attachments/assets/8f23d342-0706-4f20-ae11-3d90c73743bb" />
 
 
