@@ -1,17 +1,24 @@
 # SkyView WAGA Device (softRF)
 
-This project began in Feb 25 as a development of the SoftRF Skyview EZ display. The starting point for this code was Moshe Braner's Fork revision M06b, which was based upon Linar Lyusupov revision 0.12.
+This project began in Feb 25 as a development of the SoftRF Skyview EZ display. This device can be used to graphically display aviation traffic data derived from SoftRF or FLARM transceivers.
 
-The intent of the project is to develop a companion display device for the WAGA Flarm.  WAGA is the Western Australia Gliding Association.  The WAGA Flarm is a not for profit low cost genuine Atom PowerFlarm with ADSB using a bespoke PCB designed and assembled in Perth, Australia.  Approx 35 have been built for WAGA members for use in gliders and tugs.
+The starting point was Moshe Braner's revision M06b0 fork of the SoftRF SkyView revision 0.12 code created by Linar Lyusupov.
 
-NOTE:  The SkyView hardware is a Lilygo T5S which is an ESP32 with WaveShare 2.7" e-paper screen.  The e-paper screen is probably the limiting factor for this project.  Firstly , the screen datasheet says it's not suitable for use in strong sunlight - but its cheap to replace.  Then there is an issue regarding speed of screen update.  The code uses 'fast update' for the screen which I have measured as taking approx 850ms. However, the 'next screen' buffer is not available for writing to during a 'fast' update.  So, the worst case is an alarm received just after an update has initiated - the alarm cannot be passed to the screen for 850ms, and then it will take another 850ms to update and become visible.1.9Mb 
+The intent of the project was to develop a companion display device for the WAGA Flarm.  WAGA is the Western Australia Gliding Association.  The WAGA Flarm is a not for profit low cost genuine Atom PowerFlarm with ADSB using a bespoke PCB designed and assembled in Perth, Australia.  Approx 35 have been built for WAGA members for use in gliders and tugs.
 
-The code sketch size is nearing the 1.9MB limit of the 'Minimum SPIFSS' partition scheme.  90% of the 1,966,080 bytes are used by version WAGA01.  There is code not relevant to the Lilygo T5S board that could possibly be deleted.
+NOTE:  The original SkyView hardware was a Lilygo T5s which is an ESP32 board with WaveShare GDEW0270W3 2.7" e-paper screen.  The e-paper screen is probably the limiting factor for this project.  Firstly , the screen datasheet says it's not suitable for use in strong sunlight - but its cheap to replace.  Then there is an issue regarding speed of screen update.  The code uses 'fast update' for the screen which I have measured as taking approx 850ms. However, the 'next screen' buffer is not available for writing to during a 'fast' update.  So, the worst case is an alarm received just after an update has initiated - the alarm cannot be passed to the screen for 850ms, and then it will take another 850ms to update and become visible. 
 
-The code has been primarily tested using PowerFlarm and a traffic simulator (details below). 
+As at August 2026, the LilyGo T5s has been discontinued because the GDEW0270W3 screen it uses has been made obsolete by Goodisplay.  
 
-The original wifi_UDP and BT_LE taffic data connections appear to work from SoftRF transceivers.  Traffic data input with the USB socket as the connection does not work because it did not work in MB06B and Linar only fixed that in his V0.13.  
-I have tested staisfactorily the bridge functionality with Wifi but I have not tested it with BT. SoftRF compatibility is not relevant to the WAGA project, so I wont be fixing any related issues.
+The C++ code was developed using Arduino IDE 2.3.4 and ESP32 board support 2.0.09 and this setup compiles the WAGA04 sketch size as approx 1.8MB.  This is 90% of the 1.9 MB limit of the 'Minimal SPIFFS (1.9MB APP with OTA/190KB SPIFFS)' partition scheme.  If a ESP32 board support version 3.xx.xx is used, the resulting binary file will exceed the 1.9 MB limit and fail to install.
+
+The code has been primarily tested using PowerFlarm and a traffic simulator (details below) but it appears to fully work with SoftRF which shares the same NMEA sentence stuctures. 
+
+The SkyView wifi_UDP and BT_LE taffic data connections work to FLARM or SoftRF transceivers.  Traffic data input with the USB socket as the connection does not work because it did not work in MB06b and Linar only fixed that in his V0.13.  
+
+The data 'bridge' feature that seemingly was intended to forward received data unmodified to a selected type of data output does not work and probably never did in the original as the code is not complete. 
+
+SoftRF compatibility is not relevant to the WAGA project, so I wont be fixing any related issues.
 
 <img width="1591" height="787" alt="image" src="https://github.com/user-attachments/assets/96e9679b-19e9-4656-8948-0cf1d281458e" />
 <img width="389" height="273" alt="image" src="https://github.com/user-attachments/assets/e7a81ed4-129a-43e6-b59a-dd35df608053" />
@@ -42,8 +49,7 @@ WAGA01 Additions and changes to MB06B include:
 15. The delay between screen updates is set as 2000ms (as per MB06B).  However, Flarm Alarms are processed as priority when received and thus screen display is improved to
     between 850-1700ms after alarm detection.  This delay is a characteristic of the e-paper screen.
 16.  On startup:  If setting=Voice, the original voice 'post' jingle is suppressed.  If Setting=Buzzer, 2 buzzes are made.
-17.  On startup, if 'No data' is available, message shows what connection and baud rate is set (enumeration values).  If there is 'No Fix', the message shows what type of data is set to be received (eg NMEA).
-    This information previously was shown in the NavBoxes.
+17.  On startup, if 'No data' is available, message shows what connection and baud rate is set (enumeration values).  If there is 'No Fix', the message shows what type of data is set to be received (eg NMEA).  This information previously was shown in the NavBoxes.
 
 WAGA02 CHANGES - Not released
 ==============
@@ -58,8 +64,12 @@ WAGA03 CHANGES
     tones or a voice message.  Tones saved in /audio/tones directory on SD card. Detail in manual.  Use Audacity to create tones. 
 5.  Alarm panel now obscures Radar Panel during alarms.  Has new vertical angle indicator.
 6.  Bugs with Advisories Filters fixed.
-7.  Updated manual.  
+7.  Updated manual.
 
+WAGA04 CHANGES - intended for tow planes
+==============
+1. 'On-Tow Indicator' (OTI) shows glider on tow Comp ID and vertical tow position (low/high/danger derived from FLARM RelativeVertical data).
+2.  When the OTI is active, the 'Nearest Traffic' panel shows the nearest traffic other than the glider on tow.
 
 TRAFFIC SIMULATION TOOL
 =======================
