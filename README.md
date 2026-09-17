@@ -73,6 +73,8 @@ WAGA04 CHANGES - intended for tow planes
 3.  PFLAA traffic with zero ground speed are nolonger shown as icons on radar to reduce clutter and not considered as threats.  Icons are shown View_Radar mode to assist aero retrieves finding downed gliders (using PFLAA).
 4.  Small 'blinking' square added bottom right of display to identify when device is powered up.
 
+<img width="985" height="551" alt="SkyView WAGA04 with OTI 100826 small  for docs" src="https://github.com/user-attachments/assets/d6792fc0-e15c-45f9-a185-9d7c7ee4ed23" />
+
 TRAFFIC SIMULATION TOOL
 =======================
 This is a tool written in MS Access for creating and sending traffic simulations on a PC and sending them to the SkyView by hardwire.  It's proven invaluable during testing.  It's a working tool, not a 'polished' programme!
